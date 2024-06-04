@@ -2,7 +2,7 @@ import {initAuth0} from "@auth0/nextjs-auth0";
 
 // cannot type strictly
 const addOptional = <B, K extends PropertyKey, V>(base: B, key: K, value: V): B =>
-    value ? base : { ...base, [key]: value };
+    value ? { ...base, [key]: value } : base;
 
 const auth0 = initAuth0(
     addOptional(
