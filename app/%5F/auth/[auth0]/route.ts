@@ -1,20 +1,27 @@
-import {initAuth0} from "@auth0/nextjs-auth0";
+import { initAuth0 } from '@auth0/nextjs-auth0';
 
 // cannot type strictly
-const addOptional = <B, K extends PropertyKey, V>(base: B, key: K, value: V): B =>
-    value ? { ...base, [key]: value } : base;
+const addOptional = <B, K extends PropertyKey, V>(
+  base: B,
+  key: K,
+  value: V,
+): B => (value ? { ...base, [key]: value } : base);
 
 const auth0 = initAuth0(
-    addOptional(
-        {
-            authorizationParams: addOptional({}, 'connection', process.env.AUTH0_AUTH_CONNECTION),
-            routes: {
-                callback: '/_/auth/callback',
-            }
-        },
-        'baseURL',
-        process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`
-    )
+  addOptional(
+    {
+      authorizationParams: addOptional(
+        {},
+        'connection',
+        process.env.AUTH0_AUTH_CONNECTION,
+      ),
+      routes: {
+        callback: '/_/auth/callback',
+      },
+    },
+    'baseURL',
+    process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`,
+  ),
 );
 
 export const GET = auth0.handleAuth();
