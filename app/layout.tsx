@@ -24,7 +24,7 @@ const AppLayout = ({
     <html lang="en">
       <body style={{ margin: '0' }}>
         <AntdRegistry>
-          <Layout style={{ minHeight: '100vh' }}>
+          <Layout style={{ minHeight: '100dvh' }}>
             <Header>
               <Link href="/">
                 <Tag color="magenta" style={{ fontSize: '1.25em' }}>
