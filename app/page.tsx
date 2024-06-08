@@ -1,95 +1,51 @@
-import Image from 'next/image';
-import styles from './page.module.css';
+import { GithubOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Row, Typography } from 'antd';
+import Paragraph from 'antd/es/typography/Paragraph';
+import Title from 'antd/es/typography/Title';
+import Link from 'next/link';
 
-export default function Home() {
+const Page = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Typography>
+      <div style={{ textAlign: 'center' }}>
+        <Title>Go Home Links</Title>
+
+        <Paragraph>Easy-to-use custom URL shortener (redirector)</Paragraph>
+      </div>
+
+      <Row gutter={[16, 16]}>
+        <Col span={24} md={12}>
+          <Card title="Use this server">
+            <Paragraph>
+              This server is not public. Authentication is required to create or
+              edit links.
+            </Paragraph>
+          </Card>
+        </Col>
+        <Col span={24} md={12}>
+          <Card
+            title="Host your server"
+            actions={[
+              <Link
+                href="https://github.com/kyori19/go-home-links"
+                key="source"
+              >
+                <Button type="text">
+                  <GithubOutlined /> Check GitHub
+                </Button>
+              </Link>,
+            ]}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+            <Paragraph>
+              Go Home Links is an open source project developed on GitHub. It is
+              easy to deploy your server on{' '}
+              <Link href="https://vercel.com/">Vercel</Link>.
+            </Paragraph>
+          </Card>
+        </Col>
+      </Row>
+    </Typography>
   );
-}
+};
+
+export default Page;

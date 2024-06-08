@@ -1,0 +1,8 @@
+.content {
+  margin: 0 16px;
+
+  @media (min-width: 992px) {
+    width: calc(992px - 2 * 16px);
+    margin: 0 auto;
+  }
+}
