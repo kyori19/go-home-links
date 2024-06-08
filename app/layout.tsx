@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import { ReactNode } from 'react';
-import { Layout, Tag } from 'antd';
-import Link from 'next/link';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { Content, Footer, Header } from 'antd/es/layout/layout';
 import { GithubOutlined } from '@ant-design/icons';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Layout, Tag } from 'antd';
+import { Content, Footer, Header } from 'antd/es/layout/layout';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: {
