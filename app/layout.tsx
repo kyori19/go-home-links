@@ -25,9 +25,11 @@ const AppLayout = ({
         <AntdRegistry>
           <Layout style={{ minHeight: '100vh' }}>
             <Header>
-              <Tag color="magenta" style={{ fontSize: '1.25em' }}>
-                Go Home Links
-              </Tag>
+              <Link href="/">
+                <Tag color="magenta" style={{ fontSize: '1.25em' }}>
+                  Go Home Links
+                </Tag>
+              </Link>
             </Header>
             <Content>{children}</Content>
             <Footer style={{ textAlign: 'center' }}>
