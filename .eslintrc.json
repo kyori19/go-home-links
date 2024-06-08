@@ -6,6 +6,21 @@
     "plugin:import/typescript"
   ],
   "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["antd/lib/*"],
+            "message": "Use 'antd/es' instead."
+          },
+          {
+            "group": ["@ant-design/icons-svg", "@ant-design/icons-svg/*"],
+            "message": "Use '@ant-design/icons' instead."
+          }
+        ]
+      }
+    ],
     "@typescript-eslint/consistent-type-imports": "error",
     "import/order": [
       "error",
