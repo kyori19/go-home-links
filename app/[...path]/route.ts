@@ -5,7 +5,7 @@ export const GET = async (
   req: NextRequest,
   { params: { path } }: { params: { path: string[] } },
 ) => {
-  const key = path.join('/');
+  const key = path.map((x) => encodeURIComponent(x)).join('/');
   const editRedirect = () =>
     NextResponse.redirect(new URL(`/_/links/edit/${key}`, req.url), 307);
 
