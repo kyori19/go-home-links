@@ -12,7 +12,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: stable
+          node-version: lts/*
+          check-latest: true
           cache: npm
 
       - run: |
