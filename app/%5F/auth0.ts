@@ -1,6 +1,6 @@
-// cannot type strictly
 import { initAuth0 } from '@auth0/nextjs-auth0';
 
+// cannot type strictly
 const addOptional = <B, K extends PropertyKey, V>(
   base: B,
   key: K,
