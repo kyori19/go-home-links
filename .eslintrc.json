@@ -28,7 +28,15 @@
         "alphabetize": {
           "order": "asc"
         },
-        "groups": ["builtin", "external", "parent", "sibling", "index", "type"]
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "type"
+        ]
       }
     ]
   },

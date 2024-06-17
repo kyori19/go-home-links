@@ -1,4 +1,4 @@
-import { GithubOutlined } from '@ant-design/icons';
+import { GithubOutlined, LinkOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Row, Typography } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
 import Title from 'antd/es/typography/Title';
@@ -15,7 +15,16 @@ const Page = () => {
 
       <Row gutter={[16, 16]}>
         <Col span={24} md={12}>
-          <Card title="Use this server">
+          <Card
+            title="Use this server"
+            actions={[
+              <Link href="/_/links/edit" key="edit">
+                <Button>
+                  <LinkOutlined /> Create a new link
+                </Button>
+              </Link>,
+            ]}
+          >
             <Paragraph>
               This server is not public. Authentication is required to create or
               edit links.
@@ -30,7 +39,7 @@ const Page = () => {
                 href="https://github.com/kyori19/go-home-links"
                 key="source"
               >
-                <Button type="text">
+                <Button>
                   <GithubOutlined /> Check GitHub
                 </Button>
               </Link>,

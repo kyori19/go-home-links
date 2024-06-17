@@ -1,7 +1,8 @@
-import { GithubOutlined } from '@ant-design/icons';
+import { GithubOutlined, LinkOutlined } from '@ant-design/icons';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { Layout, Tag } from 'antd';
+import { Layout, Menu } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
+import Text from 'antd/es/typography/Text';
 import Link from 'next/link';
 import styles from './layout.module.css';
 import type { Metadata } from 'next';
@@ -25,12 +26,35 @@ const AppLayout = ({
       <body style={{ margin: '0' }}>
         <AntdRegistry>
           <Layout style={{ minHeight: '100dvh' }}>
-            <Header>
+            <Header style={{ display: 'flex' }}>
               <Link href="/">
-                <Tag color="magenta" style={{ fontSize: '1.25em' }}>
-                  Go Home Links
-                </Tag>
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: '24px',
+                    verticalAlign: 'middle',
+                  }}
+                >
+                  <LinkOutlined /> Go Home Links
+                </Text>
               </Link>
+
+              <Menu
+                theme="dark"
+                mode="horizontal"
+                selectable={false}
+                items={[
+                  {
+                    key: 'create',
+                    label: (
+                      <Link href="/_/links/edit">
+                        <LinkOutlined /> Create Link
+                      </Link>
+                    ),
+                  },
+                ]}
+                style={{ flex: 1, justifyContent: 'flex-end', minWidth: 0 }}
+              />
             </Header>
             <Content className={styles.content}>{children}</Content>
             <Footer style={{ textAlign: 'center' }}>
