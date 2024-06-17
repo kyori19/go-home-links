@@ -161,6 +161,7 @@ const Page = ({ params: {} }: { params: { path: string[] } }) => {
           ]}
         >
           <Input
+            allowClear
             addonBefore={
               <>
                 <BaseUrl />/
@@ -182,7 +183,7 @@ const Page = ({ params: {} }: { params: { path: string[] } }) => {
             { type: 'url', message: 'Redirect URL must be a valid URL.' },
           ]}
         >
-          <Input />
+          <Input allowClear />
         </FormItem>
 
         <FormItem>
