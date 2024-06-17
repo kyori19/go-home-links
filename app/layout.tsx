@@ -1,7 +1,7 @@
 import { GithubOutlined, LinkOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import {Content, Footer, Header} from 'antd/es/layout/layout';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Layout, Menu } from 'antd';
+import { Content, Footer, Header } from 'antd/es/layout/layout';
 import Text from 'antd/es/typography/Text';
 import Link from 'next/link';
 import styles from './layout.module.css';
