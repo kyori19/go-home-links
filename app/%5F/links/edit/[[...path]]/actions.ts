@@ -51,7 +51,7 @@ export const validateKey = async (
   try {
     const key = normalizeKey(rawKey);
 
-    if (await kv.sismember('links', key)) {
+    if (await kv.exists(`link:${key}`)) {
       return ValidateKeyResult.USED;
     }
 
@@ -75,14 +75,11 @@ export const register = async (rawParams: unknown): Promise<RegisterResult> => {
 
     const params = getRegisterParams(rawParams);
 
-    if (await kv.sismember('links', params.key)) {
+    if (await kv.exists(`link:${params.key}`)) {
       throw UnprocessableError;
     }
 
-    await Promise.all([
-      kv.sadd('links', params.key),
-      kv.hset(`link:${params.key}`, { target: params.target }),
-    ]);
+    await kv.hset(`link:${params.key}`, { target: params.target });
 
     redirect(`/_/links/edit/${params.key}`);
   } catch (e) {

@@ -2,15 +2,9 @@ import { kv } from '@vercel/kv';
 import { permanentRedirect, redirect } from 'next/navigation';
 
 const getTarget = async (key: string) => {
-  if (!(await kv.sismember('links', key))) {
-    return null;
-  }
-
-  const target = await kv.hget<string>(key, 'target');
+  const target = await kv.hget<string>(`link:${key}`, 'target');
 
   if (!target) {
-    // broken, remove index
-    await kv.srem('links', key);
     return null;
   }
 
